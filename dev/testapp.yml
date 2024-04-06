@@ -4,6 +4,7 @@ metadata:
   name: sample-app
   namespace: codefresh
 spec:
+  project: default
   destination:
     namespace: sample-app
     server: https://kubernetes.default.svc
