@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev
+  labels:
+    codefresh.io/entity: 'git-source'
+    codefresh.io/internal: 'false'
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gylli251/codefresh.git
+    path: .dev
+    targetRevision: main
+    directory:
+      include: '*'
+      exclude: ''
+      recurse: true
+  destination:
+    namespace: codefresh
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
