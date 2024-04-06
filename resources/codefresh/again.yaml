@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev
+  name: again
   labels:
     codefresh.io/entity: 'git-source'
     codefresh.io/internal: 'false'
@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/gylli251/codefresh.git
-    path: .dev
+    path: dev
     targetRevision: main
     directory:
       include: '*'
